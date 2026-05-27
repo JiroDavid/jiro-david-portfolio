@@ -45,4 +45,9 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
       }}>
         <div><span style={{ color: theme.a3 }}>Languages:</span> Python · TypeScript · JavaScript · HTML · CSS · SQL</div>
         <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI · Next.js · React · Tailwind · Gradio</div>
-   
+        <div><span style={{ color: theme.a3 }}>AI / ML:</span> Whisper · Ollama · LLaVA · ComfyUI · SDXL · LoRA fine-tuning</div>
+        <div><span style={{ color: theme.a3 }}>Tools:</span> Git · GitHub · FFmpeg · yt-dlp · REST APIs · OAuth 2.0 · Docker</div>
+      </div>
+    </div>
+  )
+}

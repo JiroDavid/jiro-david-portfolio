@@ -132,4 +132,9 @@ export const workspaces: Record<WorkspaceId, WorkspaceTheme> = {
     ],
     windows: [
       { id: 'contact', title: 'contact.md', xFrac: 0.100, yFrac: 0.065, wFrac: 0.390, hFrac: 0.67 },
-      { id: 'cv',      title: 'cv.pdf',     xFrac: 0.502, yFr
+      { id: 'cv',      title: 'cv.pdf',     xFrac: 0.502, yFrac: 0.065, wFrac: 0.195, hFrac: 0.67 },
+    ],
+  },
+}
+
+export const workspaceOrder: WorkspaceId[] = ['home', 'projects', 'skills', 'contact']

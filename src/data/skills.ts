@@ -19,4 +19,6 @@ export const skills: Skill[] = [
   { name: 'GIT',        icon: 'git-branch',        highlight: false },
   { name: 'FFMPEG',     icon: 'movie',             highlight: false },
   { name: 'DOCKER',     icon: 'brand-docker',      highlight: false },
-  { name: 'TAILWIND', 
+  { name: 'TAILWIND',   icon: 'brand-tailwind',    highlight: false },
+  { name: 'SQL',        icon: 'database',          highlight: false },
+]

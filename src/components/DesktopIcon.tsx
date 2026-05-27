@@ -30,4 +30,13 @@ export default function DesktopIcon({ icon, theme, onOpen }: Props) {
       ) : (
         <i
           className={`ti ${icon.icon}`}
-          style={{ fontSize: '28px', color: ico
+          style={{ fontSize: '28px', color: icon.dim ? theme.muted : theme.a2, display: 'block' }}
+          aria-hidden="true"
+        />
+      )}
+      <span style={{ fontSize: '9px', letterSpacing: '0.05em', color: theme.a1, lineHeight: 1.3, wordBreak: 'break-all' }}>
+        {icon.label}
+      </span>
+    </button>
+  )
+}
