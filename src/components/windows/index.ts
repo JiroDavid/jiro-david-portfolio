@@ -1,0 +1,6 @@
+export { default as ProfileWindow }    from './ProfileWindow'
+export { default as ProjectLogWindow } from './ProjectLogWindow'
+export { default as ProjectWindow }    from './ProjectWindow'
+export { default as SkillsWindow }     from './SkillsWindow'
+export { default as ContactWindow }    from './ContactWindow'
+export { default as CvWindow }         from './CvWindow'
