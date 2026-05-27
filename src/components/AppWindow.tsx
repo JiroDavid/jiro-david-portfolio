@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Rnd } from 'react-rnd'
 import { WorkspaceTheme } from '@/data/workspaces'
 
@@ -19,19 +20,11 @@ interface Props {
 }
 
 export default function AppWindow({
-  id,
-  title,
-  defaultX,
-  defaultY,
-  defaultW,
-  defaultH,
-  theme,
-  zIndex,
-  onClose,
-  onMinimize,
-  onFocus,
-  children,
+  id, title, defaultX, defaultY, defaultW, defaultH,
+  theme, zIndex, onClose, onMinimize, onFocus, children,
 }: Props) {
+  const [isDragging, setIsDragging] = useState(false)
+
   return (
     <Rnd
       key={id}
@@ -42,13 +35,15 @@ export default function AppWindow({
       dragHandleClassName="app-win-titlebar"
       style={{ zIndex, position: 'absolute' }}
       onMouseDown={onFocus}
+      onDragStart={() => setIsDragging(true)}
+      onDragStop={() => setIsDragging(false)}
       enableResizing={{
         top: true, right: true, bottom: true, left: true,
         topRight: true, topLeft: true, bottomRight: true, bottomLeft: true,
       }}
     >
-      {/* Full-size window shell */}
       <div
+        className="win-enter"
         style={{
           width: '100%',
           height: '100%',
@@ -57,11 +52,16 @@ export default function AppWindow({
           border: `1px solid ${theme.border}`,
           borderRadius: '10px',
           overflow: 'hidden',
-          boxShadow: '0 8px 40px rgba(0,0,0,0.5)',
+          boxShadow: isDragging
+            ? '0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05)'
+            : '0 8px 40px rgba(0,0,0,0.5)',
           position: 'relative',
+          opacity: isDragging ? 0.82 : 1,
+          filter: isDragging ? 'blur(0.4px)' : 'none',
+          transform: isDragging ? 'scale(1.01)' : 'scale(1)',
+          transition: isDragging ? 'none' : 'opacity 0.15s, filter 0.15s, transform 0.15s, box-shadow 0.15s',
         }}
       >
-        {/* Traffic-light titlebar */}
         <div
           className="app-win-titlebar"
           style={{
@@ -95,23 +95,12 @@ export default function AppWindow({
               aria-label="Maximise (unavailable)"
             />
           </div>
-
-          <span style={{
-            fontSize: '8px',
-            letterSpacing: '0.14em',
-            color: theme.a1,
-            opacity: 0.35,
-            flex: 1,
-          }}>
+          <span style={{ fontSize: '8px', letterSpacing: '0.14em', color: theme.a1, opacity: 0.35, flex: 1 }}>
             {title}
           </span>
         </div>
 
-        {/* Scrollable content */}
-        <div
-          className="win-body"
-          style={{ background: theme.winBg, color: theme.a1 }}
-        >
+        <div className="win-body" style={{ background: theme.winBg, color: theme.a1 }}>
           {children}
         </div>
       </div>

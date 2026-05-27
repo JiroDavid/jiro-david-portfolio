@@ -173,3 +173,26 @@ body {
 div:hover > .screenshot-hover-overlay {
   background: rgba(0, 0, 0, 0.28);
 }
+
+/* ─── Ripple on workspace buttons ───────────────────────────── */
+@keyframes ripple {
+  to { transform: translate(-50%, -50%) scale(25); opacity: 0; }
+}
+
+/* ─── Window enter animation ─────────────────────────────────── */
+@keyframes win-enter {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.win-enter {
+  animation: win-enter 0.18s ease-out forwards;
+}
+
+/* ─── Workspace fade ─────────────────────────────────────────── */
+@keyframes ws-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.ws-fade {
+  animation: ws-fade 0.22s ease-out forwards;
+}

@@ -66,7 +66,7 @@ export default function Desktop() {
         overflow: 'hidden',
       }}
     >
-      <div style={{
+      <div key={activeWorkspace} className="ws-fade" style={{
         position: 'absolute',
         left: '14px',
         top: '50px',
