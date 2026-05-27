@@ -1,8 +1,3 @@
-/**
- * Panel — bordered box with brick-red corner ornaments.
- * The border is cream (1px). Four <span> elements handle
- * the corner accents since CSS only gives ::before / ::after.
- */
 export default function Panel({
   children,
   className = '',

@@ -41,7 +41,10 @@ export default function Desktop() {
   const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
 
   useEffect(() => {
-    setVp({ w: window.innerWidth, h: window.innerHeight })
+    const update = () => setVp({ w: window.innerWidth, h: window.innerHeight })
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
   }, [])
 
   return (
@@ -57,7 +60,6 @@ export default function Desktop() {
         overflow: 'hidden',
       }}
     >
-      {/* Desktop icons */}
       <div style={{
         position: 'absolute',
         left: '14px',
@@ -77,7 +79,6 @@ export default function Desktop() {
         ))}
       </div>
 
-      {/* Draggable/resizable windows */}
       {vp && theme.windows.map((winCfg) => {
         const state = wsState[winCfg.id]
         if (!state?.open || state.minimized) return null
