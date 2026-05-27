@@ -6,6 +6,7 @@ import FloatingBar from '@/components/FloatingBar'
 import Desktop from '@/components/Desktop'
 import Dock from '@/components/Dock'
 import MobilePortfolio from '@/components/MobilePortfolio'
+import DesktopPets from '@/components/DesktopPet'
 
 export default function ResponsiveLayout() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null)
@@ -27,6 +28,7 @@ export default function ResponsiveLayout() {
         <Desktop />
         <FloatingBar />
         <Dock />
+        <DesktopPets />
       </div>
     </WindowManagerProvider>
   )
