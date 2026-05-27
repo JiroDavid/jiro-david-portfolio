@@ -35,8 +35,10 @@ export default function Desktop() {
   const theme = workspaces[activeWorkspace]
   const wsState = windowStates[activeWorkspace]
 
-  // Track viewport so default window positions/sizes adapt to screen
-  const [vp, setVp] = useState({ w: 1280, h: 800 })
+  // null = not yet measured. Windows don't render until we have real dimensions
+  // so react-rnd always gets the correct default sizes on first mount.
+  const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
+
   useEffect(() => {
     setVp({ w: window.innerWidth, h: window.innerHeight })
   }, [])
@@ -74,8 +76,8 @@ export default function Desktop() {
         ))}
       </div>
 
-      {/* Draggable/resizable windows */}
-      {theme.windows.map((winCfg) => {
+      {/* Draggable/resizable windows — only once viewport is measured */}
+      {vp && theme.windows.map((winCfg) => {
         const state = wsState[winCfg.id]
         if (!state?.open || state.minimized) return null
 

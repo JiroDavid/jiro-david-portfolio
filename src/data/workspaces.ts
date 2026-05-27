@@ -17,6 +17,8 @@ export interface IconConfig {
   id: string
   label: string
   icon: string
+  /** Optional custom image path — renders <img> instead of Tabler icon */
+  customIcon?: string
   windowId: string
   dim?: boolean
 }
@@ -83,7 +85,7 @@ export const workspaces: Record<WorkspaceId, WorkspaceTheme> = {
     winBg: 'rgba(24,12,16,0.96)',
     icons: [
       { id: 'clip',  label: 'clip_editor.py',  icon: 'ti-video',     windowId: 'clip'  },
-      { id: 'story', label: 'storyboarder.py', icon: 'ti-storybook', windowId: 'story' },
+      { id: 'story', label: 'storyboarder.py', icon: 'ti-camera-movie', customIcon: '/assets/storyboard_logo.png', windowId: 'story' },
       { id: 'r6',    label: 'r6_strat.py',     icon: 'ti-lock',      windowId: 'r6',   dim: true },
     ],
     windows: [
@@ -130,9 +132,4 @@ export const workspaces: Record<WorkspaceId, WorkspaceTheme> = {
     ],
     windows: [
       { id: 'contact', title: 'contact.md', xFrac: 0.100, yFrac: 0.065, wFrac: 0.390, hFrac: 0.67 },
-      { id: 'cv',      title: 'cv.pdf',     xFrac: 0.502, yFrac: 0.065, wFrac: 0.195, hFrac: 0.67 },
-    ],
-  },
-}
-
-export const workspaceOrder: WorkspaceId[] = ['home', 'projects', 'skills', 'contact']
+      { id: 'cv',      title: 'cv.pdf',     xFrac: 0.502, yFr

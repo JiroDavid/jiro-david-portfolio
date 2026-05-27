@@ -163,3 +163,15 @@ body {
   border-radius: 3px;
   opacity: 0.6;
 }
+
+/* ─── Screenshot hover overlay ──────────────────────────────── */
+.screenshot-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.2s;
+  pointer-events: none;
+}
+div:hover > .screenshot-hover-overlay {
+  background: rgba(0, 0, 0, 0.28);
+}

@@ -21,14 +21,13 @@ export default function DesktopIcon({ icon, theme, onOpen }: Props) {
         fontFamily: 'inherit',
       } as React.CSSProperties}
     >
-      <i
-        className={`ti ${icon.icon}`}
-        style={{ fontSize: '28px', color: icon.dim ? theme.muted : theme.a2, display: 'block' }}
-        aria-hidden="true"
-      />
-      <span style={{ fontSize: '9px', letterSpacing: '0.05em', color: theme.a1, lineHeight: 1.3, wordBreak: 'break-all' }}>
-        {icon.label}
-      </span>
-    </button>
-  )
-}
+      {icon.customIcon ? (
+        <img
+          src={icon.customIcon}
+          alt={icon.label}
+          style={{ width: '28px', height: '28px', objectFit: 'contain', display: 'block', margin: '0 auto', opacity: icon.dim ? 0.4 : 1 }}
+        />
+      ) : (
+        <i
+          className={`ti ${icon.icon}`}
+          style={{ fontSize: '28px', color: ico

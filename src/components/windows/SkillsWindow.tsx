@@ -7,7 +7,7 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
       <p className="panel-label" style={{ color: theme.a3 }}>スキル · SKILLS</p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '9px', marginBottom: '20px' }}>
-        {skills.map(({ name, icon, highlight }) => (
+        {skills.map(({ name, icon, customIcon, highlight }) => (
           <div
             key={name}
             style={{
@@ -19,11 +19,19 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
               transition: 'opacity 0.2s',
             }}
           >
-            <i
-              className={`ti ti-${icon}`}
-              style={{ fontSize: '21px', color: highlight ? theme.a2 : theme.muted, display: 'block', marginBottom: '6px' }}
-              aria-hidden="true"
-            />
+            {customIcon ? (
+              <img
+                src={customIcon}
+                alt={name}
+                style={{ width: '21px', height: '21px', objectFit: 'contain', display: 'block', margin: '0 auto 6px' }}
+              />
+            ) : (
+              <i
+                className={`ti ti-${icon}`}
+                style={{ fontSize: '21px', color: highlight ? theme.a2 : theme.muted, display: 'block', marginBottom: '6px' }}
+                aria-hidden="true"
+              />
+            )}
             <span style={{ fontSize: '8px', letterSpacing: '0.06em', color: highlight ? theme.a1 : theme.muted }}>
               {name}
             </span>
@@ -37,9 +45,4 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
       }}>
         <div><span style={{ color: theme.a3 }}>Languages:</span> Python · TypeScript · JavaScript · HTML · CSS · SQL</div>
         <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI · Next.js · React · Tailwind · Gradio</div>
-        <div><span style={{ color: theme.a3 }}>AI / ML:</span> Whisper · Ollama · LLaVA · ComfyUI · SDXL · LoRA fine-tuning</div>
-        <div><span style={{ color: theme.a3 }}>Tools:</span> Git · GitHub · FFmpeg · yt-dlp · REST APIs · OAuth 2.0 · Docker</div>
-      </div>
-    </div>
-  )
-}
+   
