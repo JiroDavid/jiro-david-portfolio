@@ -36,6 +36,12 @@ export default function AppWindow({
       style={{ zIndex, position: 'absolute' }}
       onMouseDown={onFocus}
       onDragStart={() => setIsDragging(true)}
+      onDrag={(e) => {
+        const me = e as MouseEvent
+        if (me.clientX !== undefined) {
+          window.dispatchEvent(new CustomEvent('win-drag', { detail: { x: me.clientX, y: me.clientY } }))
+        }
+      }}
       onDragStop={() => setIsDragging(false)}
       enableResizing={{
         top: true, right: true, bottom: true, left: true,
@@ -77,29 +83,17 @@ export default function AppWindow({
           }}
         >
           <div style={{ display: 'flex', gap: '6px' }}>
-            <button
-              className="dot-btn"
-              style={{ background: '#ff6058' }}
-              onClick={(e) => { e.stopPropagation(); onClose() }}
-              aria-label="Close window"
-            />
-            <button
-              className="dot-btn"
-              style={{ background: '#ffbd2e' }}
-              onClick={(e) => { e.stopPropagation(); onMinimize() }}
-              aria-label="Minimise window"
-            />
-            <button
-              className="dot-btn"
-              style={{ background: '#28c840', opacity: 0.4, cursor: 'default' }}
-              aria-label="Maximise (unavailable)"
-            />
+            <button className="dot-btn" style={{ background: '#ff6058' }}
+              onClick={(e) => { e.stopPropagation(); onClose() }} aria-label="Close" />
+            <button className="dot-btn" style={{ background: '#ffbd2e' }}
+              onClick={(e) => { e.stopPropagation(); onMinimize() }} aria-label="Minimise" />
+            <button className="dot-btn" style={{ background: '#28c840', opacity: 0.4, cursor: 'default' }}
+              aria-label="Maximise (unavailable)" />
           </div>
           <span style={{ fontSize: '8px', letterSpacing: '0.14em', color: theme.a1, opacity: 0.35, flex: 1 }}>
             {title}
           </span>
         </div>
-
         <div className="win-body" style={{ background: theme.winBg, color: theme.a1 }}>
           {children}
         </div>

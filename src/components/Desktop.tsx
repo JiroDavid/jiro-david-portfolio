@@ -58,18 +58,18 @@ export default function Desktop() {
       style={{
         position: 'absolute',
         inset: 0,
+        overflow: 'hidden',
         backgroundColor: theme.bg,
         backgroundImage: `url(${theme.wallpaper})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         transition: 'background-color 0.5s',
-        overflow: 'hidden',
       }}
     >
       <div key={activeWorkspace} className="ws-fade" style={{
         position: 'absolute',
         left: '14px',
-        top: '50px',
+        top: '66px',
         display: 'flex',
         flexDirection: 'column',
         gap: '4px',
@@ -90,7 +90,7 @@ export default function Desktop() {
         if (!state?.open || state.minimized) return null
 
         const defaultX = Math.round(winCfg.xFrac * vp.w)
-        const defaultY = Math.max(52, Math.round(winCfg.yFrac * vp.h))
+        const defaultY = Math.max(68, Math.round(winCfg.yFrac * vp.h))
         const defaultW = Math.round(winCfg.wFrac * vp.w)
         const defaultH = Math.round(winCfg.hFrac * vp.h)
 

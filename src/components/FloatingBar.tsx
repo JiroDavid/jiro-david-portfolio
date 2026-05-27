@@ -5,7 +5,6 @@ import { useWindowManager } from '@/context/WindowManager'
 import { workspaces, workspaceOrder, WorkspaceId } from '@/data/workspaces'
 
 const WELCOME_NOTIF = {
-  id: 1,
   from: 'Jiro David',
   avatar: '/assets/toto.png',
   message: "hey! welcome to my portfolio. explore the tabs to see my projects, skills and how to reach me.",
@@ -73,25 +72,25 @@ export default function FloatingBar() {
         top: '8px',
         left: '10px',
         right: '10px',
-        height: '38px',
-        borderRadius: '8px',
+        height: '48px',
+        borderRadius: '10px',
         background: theme.barBg,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 14px',
+        padding: '0 16px',
         zIndex: 1000,
         transition: 'background 0.4s',
         border: '1px solid rgba(255,255,255,0.06)',
       }}
     >
-      <span style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.1em', color: theme.a1, opacity: 0.7, flexShrink: 0 }}>
+      <span style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.1em', color: theme.a1, opacity: 0.7, flexShrink: 0 }}>
         ⬡ JIRO<span style={{ color: theme.a2 }}>.</span>DEV
       </span>
 
-      <div style={{ display: 'flex', gap: '3px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+      <div style={{ display: 'flex', gap: '4px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
         {workspaceOrder.map((id: WorkspaceId) => {
           const on = id === activeWorkspace
           return (
@@ -101,12 +100,12 @@ export default function FloatingBar() {
               style={{
                 position: 'relative',
                 overflow: 'hidden',
-                padding: '5px 16px',
+                padding: '6px 17px',
                 border: `1px solid ${on ? theme.border : 'transparent'}`,
-                borderRadius: '4px',
+                borderRadius: '6px',
                 background: 'transparent',
                 color: on ? theme.a1 : theme.muted,
-                fontSize: '11px',
+                fontSize: '13px',
                 letterSpacing: '0.1em',
                 cursor: 'pointer',
                 fontFamily: 'inherit',
@@ -119,16 +118,16 @@ export default function FloatingBar() {
         })}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-        <div style={{ textAlign: 'right', lineHeight: 1.3 }}>
-          <div style={{ fontSize: '10px', color: theme.a1, opacity: 0.8 }}>{time}</div>
-          <div style={{ fontSize: '8px', color: theme.muted, opacity: 0.7 }}>{date}</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
+        <div style={{ textAlign: 'right', lineHeight: 1.4 }}>
+          <div style={{ fontSize: '12px', color: theme.a1, opacity: 0.85 }}>{time}</div>
+          <div style={{ fontSize: '10px', color: theme.muted, opacity: 0.7 }}>{date}</div>
         </div>
 
         <img
           src="/assets/toto.png"
           alt="toto"
-          style={{ height: '26px', width: 'auto', objectFit: 'contain', opacity: 0.9 }}
+          style={{ height: '30px', width: 'auto', objectFit: 'contain', opacity: 0.9 }}
         />
 
         <div ref={panelRef} style={{ position: 'relative' }}>
@@ -139,20 +138,19 @@ export default function FloatingBar() {
               border: 'none',
               cursor: 'pointer',
               padding: '4px',
-              color: theme.muted,
-              position: 'relative',
               display: 'flex',
               alignItems: 'center',
+              position: 'relative',
             }}
           >
-            <i className="ti ti-bell" style={{ fontSize: '15px', color: theme.a1, opacity: 0.7 }} />
+            <i className="ti ti-bell" style={{ fontSize: '20px', color: theme.a1, opacity: 0.75 }} />
             {!read && (
               <span style={{
                 position: 'absolute',
                 top: '2px',
                 right: '2px',
-                width: '6px',
-                height: '6px',
+                width: '7px',
+                height: '7px',
                 borderRadius: '50%',
                 background: theme.a2,
               }} />
@@ -162,11 +160,11 @@ export default function FloatingBar() {
           {notifOpen && (
             <div style={{
               position: 'absolute',
-              top: '34px',
+              top: '42px',
               right: 0,
-              width: '280px',
+              width: '300px',
               background: theme.winBg,
-              border: `1px solid ${theme.border}22`,
+              border: `1px solid rgba(255,255,255,0.08)`,
               borderRadius: '10px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
               overflow: 'hidden',
@@ -174,26 +172,26 @@ export default function FloatingBar() {
               animation: 'win-enter 0.15s ease-out forwards',
             }}>
               <div style={{
-                padding: '10px 14px',
-                fontSize: '8px',
+                padding: '11px 16px',
+                fontSize: '9px',
                 letterSpacing: '0.18em',
                 color: theme.muted,
-                borderBottom: `1px solid rgba(255,255,255,0.06)`,
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
               }}>
                 NOTIFICATIONS
               </div>
-              <div style={{ padding: '12px 14px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+              <div style={{ padding: '14px 16px', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <img
                   src={WELCOME_NOTIF.avatar}
                   alt="toto"
-                  style={{ width: '28px', height: '28px', objectFit: 'contain', flexShrink: 0 }}
+                  style={{ width: '32px', height: '32px', objectFit: 'contain', flexShrink: 0 }}
                 />
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                    <span style={{ fontSize: '9px', fontWeight: 700, color: theme.a1 }}>{WELCOME_NOTIF.from}</span>
-                    <span style={{ fontSize: '8px', color: theme.muted }}>{WELCOME_NOTIF.time}</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
+                    <span style={{ fontSize: '10px', fontWeight: 700, color: theme.a1 }}>{WELCOME_NOTIF.from}</span>
+                    <span style={{ fontSize: '9px', color: theme.muted }}>{WELCOME_NOTIF.time}</span>
                   </div>
-                  <p style={{ fontSize: '9px', color: theme.muted, lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: '10px', color: theme.muted, lineHeight: 1.6, margin: 0 }}>
                     {WELCOME_NOTIF.message}
                   </p>
                 </div>
