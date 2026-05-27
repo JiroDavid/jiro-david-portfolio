@@ -12,12 +12,28 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
     <div>
       <p className="panel-label" style={{ color: theme.a3 }}>PROFILE</p>
 
-      <h1 style={{ fontSize: '28px', fontWeight: 700, lineHeight: 1.05, marginBottom: '4px', color: theme.a1 }}>
-        JIRO<br />DAVID
-      </h1>
-      <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em', marginBottom: '22px' }}>
-        ◆ FULL-STACK DEVELOPER
-      </p>
+      <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '18px', gap: '14px' }}>
+        <img
+          src="/assets/jiro.JPG"
+          alt="Jiro David"
+          style={{
+            width: '120px',
+            height: 'auto',
+            objectFit: 'contain',
+            borderRadius: '6px',
+            border: `1px solid ${theme.border}`,
+            flexShrink: 0,
+          }}
+        />
+        <div>
+          <h1 style={{ fontSize: '24px', fontWeight: 700, lineHeight: 1.05, marginBottom: '4px', color: theme.a1 }}>
+            JIRO<br />DAVID
+          </h1>
+          <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em' }}>
+            ◆ FULL-STACK DEVELOPER
+          </p>
+        </div>
+      </div>
 
       {stats.map(({ label, width, accent }) => (
         <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '11px' }}>

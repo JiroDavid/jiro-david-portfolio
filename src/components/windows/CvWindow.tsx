@@ -2,25 +2,33 @@ import { WorkspaceTheme } from '@/data/workspaces'
 
 export default function CvWindow({ theme }: { theme: WorkspaceTheme }) {
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'center',
-      height: '100%', minHeight: '160px', gap: '14px',
-    }}>
-      <i className="ti ti-file-type-pdf" style={{ fontSize: '42px', color: theme.a2, opacity: 0.75 }} aria-hidden="true" />
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '10px' }}>
+      <div style={{ flex: 1, minHeight: 0, borderRadius: '4px', overflow: 'hidden', border: `1px solid ${theme.border}33` }}>
+        <iframe
+          src="/assets/jiro-david-cv.pdf"
+          style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
+          title="Jiro David CV"
+        />
+      </div>
       <a
         href="/assets/jiro-david-cv.pdf"
         download
         style={{
-          fontSize: '9px', letterSpacing: '0.12em', color: theme.a1,
-          textDecoration: 'none', padding: '7px 16px',
-          border: `1px solid ${theme.border}`, borderRadius: '4px',
+          display: 'block',
+          textAlign: 'center',
+          fontSize: '9px',
+          letterSpacing: '0.12em',
+          color: theme.a1,
+          textDecoration: 'none',
+          padding: '8px 0',
+          border: `1px solid ${theme.border}`,
+          borderRadius: '4px',
           transition: 'opacity 0.15s',
+          flexShrink: 0,
         }}
       >
-        DOWNLOAD CV
+        &#8595; DOWNLOAD CV
       </a>
-      <span style={{ fontSize: '8px', color: theme.muted }}>jiro-david-cv.pdf</span>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { skills } from '@/data/skills'
 export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
   return (
     <div>
-      <p className="panel-label" style={{ color: theme.a3 }}>スキル · SKILLS</p>
+      <p className="panel-label" style={{ color: theme.a3 }}>&#12473;&#12461;&#12523; &middot; SKILLS</p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '9px', marginBottom: '20px' }}>
         {skills.map(({ name, icon, customIcon, highlight }) => (
@@ -43,10 +43,10 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
         paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.06)',
         fontSize: '8px', color: theme.muted, lineHeight: 2.0,
       }}>
-        <div><span style={{ color: theme.a3 }}>Languages:</span> Python · TypeScript · JavaScript · HTML · CSS · SQL</div>
-        <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI · Next.js · React · Tailwind · Gradio</div>
-        <div><span style={{ color: theme.a3 }}>AI / ML:</span> Whisper · Ollama · LLaVA · ComfyUI · SDXL · LoRA fine-tuning</div>
-        <div><span style={{ color: theme.a3 }}>Tools:</span> Git · GitHub · FFmpeg · yt-dlp · REST APIs · OAuth 2.0 · Docker</div>
+        <div><span style={{ color: theme.a3 }}>Languages:</span> Python &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; SQL</div>
+        <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI &middot; Next.js &middot; React &middot; Tailwind &middot; Gradio</div>
+        <div><span style={{ color: theme.a3 }}>AI / ML:</span> Whisper &middot; Ollama &middot; LLaVA &middot; ComfyUI &middot; SDXL &middot; LoRA fine-tuning</div>
+        <div><span style={{ color: theme.a3 }}>Tools:</span> Git &middot; GitHub &middot; FFmpeg &middot; yt-dlp &middot; REST APIs &middot; OAuth 2.0 &middot; Docker</div>
       </div>
     </div>
   )

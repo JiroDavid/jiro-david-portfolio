@@ -13,7 +13,6 @@ interface Props {
 function PreviewModal({ project, theme, onClose }: { project: Project; theme: WorkspaceTheme; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
@@ -117,7 +116,6 @@ export default function ProjectWindow({ theme, project }: Props) {
   const [showPreview, setShowPreview] = useState(false)
   const [mounted, setMounted]         = useState(false)
 
-  // Portal needs the DOM to be ready
   useEffect(() => { setMounted(true) }, [])
 
   return (

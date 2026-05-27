@@ -13,18 +13,21 @@ import {
   SkillsWindow,
   ContactWindow,
   CvWindow,
+  TerminalWindow,
 } from './windows'
 
 function renderContent(windowId: string, theme: WorkspaceTheme) {
+  const workspaceId = theme.id
   switch (windowId) {
-    case 'profile': return <ProfileWindow theme={theme} />
-    case 'log':     return <ProjectLogWindow theme={theme} />
-    case 'clip':    return <ProjectWindow theme={theme} project={projects[0]} />
-    case 'story':   return <ProjectWindow theme={theme} project={projects[1]} />
-    case 'skills':  return <SkillsWindow theme={theme} />
-    case 'contact': return <ContactWindow theme={theme} />
-    case 'cv':      return <CvWindow theme={theme} />
-    default:        return null
+    case 'profile':  return <ProfileWindow theme={theme} />
+    case 'log':      return <ProjectLogWindow theme={theme} />
+    case 'clip':     return <ProjectWindow theme={theme} project={projects[0]} />
+    case 'story':    return <ProjectWindow theme={theme} project={projects[1]} />
+    case 'skills':   return <SkillsWindow theme={theme} />
+    case 'contact':  return <ContactWindow theme={theme} />
+    case 'cv':       return <CvWindow theme={theme} />
+    case 'terminal': return <TerminalWindow theme={theme} workspaceId={workspaceId} />
+    default:         return null
   }
 }
 
@@ -35,8 +38,6 @@ export default function Desktop() {
   const theme = workspaces[activeWorkspace]
   const wsState = windowStates[activeWorkspace]
 
-  // null = not yet measured. Windows don't render until we have real dimensions
-  // so react-rnd always gets the correct default sizes on first mount.
   const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Desktop() {
         overflow: 'hidden',
       }}
     >
-      {/* Desktop icons — left column below bar */}
+      {/* Desktop icons */}
       <div style={{
         position: 'absolute',
         left: '14px',
@@ -76,7 +77,7 @@ export default function Desktop() {
         ))}
       </div>
 
-      {/* Draggable/resizable windows — only once viewport is measured */}
+      {/* Draggable/resizable windows */}
       {vp && theme.windows.map((winCfg) => {
         const state = wsState[winCfg.id]
         if (!state?.open || state.minimized) return null

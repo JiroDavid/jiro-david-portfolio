@@ -1,9 +1,10 @@
 import { WorkspaceTheme } from '@/data/workspaces'
 
 const rows = [
-  { icon: 'ti-mail',          label: 'EMAIL',    value: 'jirodavid153@gmail.com',    href: 'mailto:jirodavid153@gmail.com' },
-  { icon: 'ti-brand-github',  label: 'GITHUB',   value: 'github.com/JiroDavid',       href: 'https://github.com/JiroDavid' },
-  { icon: 'ti-brand-linkedin',label: 'LINKEDIN', value: 'linkedin.com/in/jirodavid',  href: 'https://linkedin.com/in/jirodavid' },
+  { icon: 'ti-mail',          label: 'EMAIL',    value: 'jirodavid153@gmail.com',      href: 'mailto:jirodavid153@gmail.com' },
+  { icon: 'ti-phone',         label: 'PHONE',    value: '07555 979 116',               href: 'tel:07555979116' },
+  { icon: 'ti-brand-github',  label: 'GITHUB',   value: 'github.com/JiroDavid',        href: 'https://github.com/JiroDavid' },
+  { icon: 'ti-brand-linkedin',label: 'LINKEDIN', value: 'linkedin.com/in/jirodavid',   href: 'https://linkedin.com/in/jirodavid' },
   { icon: 'ti-map-pin',       label: 'LOCATION', value: 'London, UK · open to remote', href: undefined },
 ]
 
@@ -23,7 +24,7 @@ export default function ContactWindow({ theme }: { theme: WorkspaceTheme }) {
             {href ? (
               <a
                 href={href}
-                target={href.startsWith('mailto') ? undefined : '_blank'}
+                target={href.startsWith('mailto') || href.startsWith('tel') ? undefined : '_blank'}
                 rel="noopener noreferrer"
                 style={{ fontSize: '10px', color: theme.a1, textDecoration: 'none' }}
               >

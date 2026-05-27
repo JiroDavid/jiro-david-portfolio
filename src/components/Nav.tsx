@@ -12,7 +12,6 @@ const links = [
 export default function Nav() {
   const [active, setActive] = useState('HOME')
 
-  // Highlight nav link based on scroll position
   useEffect(() => {
     const sections = ['home', 'projects', 'skills', 'contact']
 

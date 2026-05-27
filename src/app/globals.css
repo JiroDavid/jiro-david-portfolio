@@ -6,6 +6,8 @@
 html,
 body,
 #__next {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -57,7 +59,7 @@ body {
   cursor: grabbing;
 }
 
-/* ─── Dot (traffic light) buttons — 15% bigger: 10px → 12px ─── */
+/* ─── Dot (traffic light) buttons ───────────────────────────── */
 .dot-btn {
   width: 12px;
   height: 12px;
@@ -73,7 +75,7 @@ body {
   filter: brightness(0.8);
 }
 
-/* ─── Desktop icon — 25% bigger ─────────────────────────────── */
+/* ─── Desktop icon ───────────────────────────────────────────── */
 .desktop-icon {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -117,7 +119,7 @@ body {
   border-radius: 2px;
 }
 
-/* ─── Shared content helpers — 15% bigger text ──────────────── */
+/* ─── Shared content helpers ─────────────────────────────────── */
 .panel-label {
   font-size: 8px;
   letter-spacing: 0.2em;
