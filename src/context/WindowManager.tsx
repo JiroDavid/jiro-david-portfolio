@@ -19,6 +19,7 @@ interface WMContextValue {
   closeWindow: (windowId: string) => void
   minimizeWindow: (windowId: string) => void
   bringToFront: (windowId: string) => void
+  navigateTo: (wsId: WorkspaceId, windowId: string) => void
 }
 
 const WMContext = createContext<WMContextValue | null>(null)
@@ -103,6 +104,24 @@ export function WindowManagerProvider({ children }: { children: React.ReactNode 
     })
   }, [activeWorkspace])
 
+  const navigateTo = useCallback((wsId: WorkspaceId, windowId: string) => {
+    setActiveWorkspace(wsId)
+    setTopZ((z) => {
+      const next = z + 1
+      setWindowStates((prev) => {
+        const existing = prev[wsId][windowId] ?? { open: false, minimized: false, zIndex: 10 }
+        return {
+          ...prev,
+          [wsId]: {
+            ...prev[wsId],
+            [windowId]: { ...existing, open: true, minimized: false, zIndex: next },
+          },
+        }
+      })
+      return next
+    })
+  }, [])
+
   return (
     <WMContext.Provider
       value={{
@@ -113,6 +132,7 @@ export function WindowManagerProvider({ children }: { children: React.ReactNode 
         closeWindow,
         minimizeWindow,
         bringToFront,
+        navigateTo,
       }}
     >
       {children}
