@@ -9,11 +9,11 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Jiro David — Full-Stack Developer',
+  title: 'Jiro David / Full-Stack Developer',
   description:
     'Full-stack developer building tools for creators and gamers. BSc Computer Science, UAL 2026.',
   openGraph: {
-    title: 'Jiro David — Full-Stack Developer',
+    title: 'Jiro David / Full-Stack Developer',
     description: 'Full-stack developer building tools for creators and gamers.',
     url: 'https://jirodavid.dev',
     siteName: 'Jiro David',
