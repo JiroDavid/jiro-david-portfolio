@@ -41,10 +41,16 @@ export default function Desktop() {
   const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
 
   useEffect(() => {
-    const update = () => setVp({ w: window.innerWidth, h: window.innerHeight })
-    update()
+    setVp({ w: window.innerWidth, h: window.innerHeight })
+    let timer: ReturnType<typeof setTimeout>
+    const update = () => {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        setVp({ w: window.innerWidth, h: window.innerHeight })
+      }, 200)
+    }
     window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
+    return () => { clearTimeout(timer); window.removeEventListener('resize', update) }
   }, [])
 
   return (
@@ -90,7 +96,7 @@ export default function Desktop() {
 
         return (
           <AppWindow
-            key={`${activeWorkspace}-${winCfg.id}`}
+            key={`${activeWorkspace}-${winCfg.id}-${vp.w}`}
             id={winCfg.id}
             title={winCfg.title}
             defaultX={defaultX}
