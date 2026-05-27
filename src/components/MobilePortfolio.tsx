@@ -32,7 +32,7 @@ function SectionLabel({ text }: { text: string }) {
 
 export default function MobilePortfolio() {
   return (
-    <div style={{ background: theme.bg, minHeight: '100vh', fontFamily: 'var(--font-mono), monospace', color: theme.a1, overflowX: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: 0, overflowY: 'auto', overflowX: 'hidden', background: theme.bg, fontFamily: 'var(--font-mono), monospace', color: theme.a1 }}>
 
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '44px', background: theme.barBg, backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', padding: '0 18px', zIndex: 100, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <span style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.1em', color: theme.a1, opacity: 0.7 }}>
