@@ -57,7 +57,9 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
       </div>
 
       <div style={{ marginTop: '18px', paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted, lineHeight: 1.6 }}>
-        CS graduate from UAL. I build tools for the creator and gaming spaces — full-stack apps with ML pipelines baked in.
+        CS graduate from UAL. I build tools for the creators and gamers! Specifically, full-stack apps with AI and ML pipelines baked in. 
+        Fullstack development is my bread and butter, but I also have a passion for design and UX. I’m currently looking for new opportunities, 
+        so feel free to reach out!
       </div>
     </div>
   )
