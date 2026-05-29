@@ -251,12 +251,12 @@ export default function FloatingBar() {
             </div>
             <div style={{ padding:'14px 16px 18px', fontSize:'10px', color:theme.muted, lineHeight:1.8 }}>
               <p style={{ marginBottom:'12px', color:theme.a1, opacity:0.8 }}>
-                Hey! Welcome to my portfolio — here&apos;s a quick tour of what&apos;s inside:
+                Hey! Welcome to my portfolio, here&apos;s a quick tour of what&apos;s inside:
               </p>
               <div style={{ display:'flex', flexDirection:'column', gap:'8px' }}>
                 {[
                   ['PROFILE',  'Who I am, what I build, and how I got here. Also has my skill stack and a quick bio.'],
-                  ['PROJECTS', 'My actual work — not just a list. Check out the Twitch Clip Editor (turned thesis, now used by real streamers) and the Video Storyboarder (AI pipeline for YouTube creators).'],
+                  ['PROJECTS', 'My actual work, not just a list. Check out the Twitch Clip Editor (turned thesis, now used by real streamers) and the Video Storyboarder (AI pipeline for YouTube creators).'],
                   ['SKILLS',   'My tech stack at a glance: languages, frameworks, and the AI/ML tools I reach for day-to-day.'],
                   ['CV',       'My resume. Hit the download button if you want a copy.'],
                   ['CONTACT',  'Best ways to reach me. Email is fastest.'],
@@ -267,7 +267,7 @@ export default function FloatingBar() {
                   </div>
                 ))}
               </div>
-              <p style={{ marginTop:'14px', opacity:0.5 }}>Drag windows around and make yourself at home. — Jiro</p>
+              <p style={{ marginTop:'14px', opacity:0.5 }}>Drag windows around and make yourself at home. Jiro</p>
             </div>
           </div>
         </div>
