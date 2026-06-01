@@ -101,7 +101,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-5 pt-4 border-t border-dark-border text-[8px] text-muted tracking-wide">
-            <span className="text-cream font-bold">Open to junior dev roles</span>
+            <span className="text-cream font-bold">Open to dev roles</span>
             {' '}· London / Remote
             <span className="blink-cursor" aria-hidden="true" />
           </div>

@@ -75,14 +75,18 @@ export default function Desktop() {
         gap: '4px',
         zIndex: 5,
       }}>
-        {theme.icons.map((icon) => (
-          <DesktopIcon
-            key={icon.id}
-            icon={icon}
-            theme={theme}
-            onOpen={() => openWindow(icon.windowId)}
-          />
-        ))}
+        {theme.icons.map((icon) => {
+          const winState = wsState[icon.windowId]
+          const isOpenAndVisible = winState?.open && !winState?.minimized
+          return (
+            <DesktopIcon
+              key={icon.id}
+              icon={icon}
+              theme={theme}
+              onOpen={() => isOpenAndVisible ? closeWindow(icon.windowId) : openWindow(icon.windowId)}
+            />
+          )
+        })}
       </div>
 
       {vp && theme.windows.map((winCfg) => {

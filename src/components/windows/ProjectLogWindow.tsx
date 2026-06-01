@@ -94,7 +94,7 @@ export default function ProjectLogWindow({ theme }: { theme: WorkspaceTheme }) {
       })}
 
       <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted }}>
-        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to junior dev roles</span>
+        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to dev roles</span>
         {' '}· London / Remote
         <span className="blink-cursor" style={{ color: theme.a2 }} aria-hidden="true" />
       </div>

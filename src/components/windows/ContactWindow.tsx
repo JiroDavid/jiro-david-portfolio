@@ -38,7 +38,7 @@ export default function ContactWindow({ theme }: { theme: WorkspaceTheme }) {
       ))}
 
       <div style={{ marginTop: '16px', fontSize: '9px', color: theme.muted }}>
-        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to junior dev roles</span>
+        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to dev roles</span>
         {' '}· available Jul 2026
         <span className="blink-cursor" style={{ color: theme.a2 }} aria-hidden="true" />
       </div>
