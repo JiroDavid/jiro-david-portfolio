@@ -188,6 +188,15 @@ div:hover > .screenshot-hover-overlay {
   animation: win-enter 0.18s ease-out forwards;
 }
 
+/* ─── Window exit animation ──────────────────────────────────── */
+@keyframes win-exit {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.97); }
+}
+.win-exit {
+  animation: win-exit 0.18s ease-in forwards;
+}
+
 /* ─── Workspace fade ─────────────────────────────────────────── */
 @keyframes ws-fade {
   from { opacity: 0; }

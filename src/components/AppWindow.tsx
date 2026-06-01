@@ -13,6 +13,7 @@ interface Props {
   defaultH: number
   theme: WorkspaceTheme
   zIndex: number
+  isClosing?: boolean
   onClose: () => void
   onMinimize: () => void
   onFocus: () => void
@@ -21,7 +22,7 @@ interface Props {
 
 export default function AppWindow({
   id, title, defaultX, defaultY, defaultW, defaultH,
-  theme, zIndex, onClose, onMinimize, onFocus, children,
+  theme, zIndex, isClosing, onClose, onMinimize, onFocus, children,
 }: Props) {
   const [isDragging, setIsDragging] = useState(false)
 
@@ -49,7 +50,7 @@ export default function AppWindow({
       }}
     >
       <div
-        className="win-enter"
+        className={isClosing ? 'win-exit' : 'win-enter'}
         style={{
           width: '100%',
           height: '100%',

@@ -39,6 +39,15 @@ export default function Desktop() {
   const wsState = windowStates[activeWorkspace]
 
   const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
+  const [closingIds, setClosingIds] = useState<Set<string>>(new Set())
+
+  function requestClose(windowId: string) {
+    setClosingIds((prev) => new Set(prev).add(windowId))
+    setTimeout(() => {
+      closeWindow(windowId)
+      setClosingIds((prev) => { const s = new Set(prev); s.delete(windowId); return s })
+    }, 170)
+  }
 
   useEffect(() => {
     setVp({ w: window.innerWidth, h: window.innerHeight })
@@ -77,13 +86,13 @@ export default function Desktop() {
       }}>
         {theme.icons.map((icon) => {
           const winState = wsState[icon.windowId]
-          const isOpenAndVisible = winState?.open && !winState?.minimized
+          const isOpenAndVisible = winState?.open && !winState?.minimized && !closingIds.has(icon.windowId)
           return (
             <DesktopIcon
               key={icon.id}
               icon={icon}
               theme={theme}
-              onOpen={() => isOpenAndVisible ? closeWindow(icon.windowId) : openWindow(icon.windowId)}
+              onOpen={() => isOpenAndVisible ? requestClose(icon.windowId) : openWindow(icon.windowId)}
             />
           )
         })}
@@ -91,7 +100,8 @@ export default function Desktop() {
 
       {vp && theme.windows.map((winCfg) => {
         const state = wsState[winCfg.id]
-        if (!state?.open || state.minimized) return null
+        const isClosing = closingIds.has(winCfg.id)
+        if ((!state?.open || state.minimized) && !isClosing) return null
 
         const defaultX = Math.round(winCfg.xFrac * vp.w)
         const defaultY = Math.max(68, Math.round(winCfg.yFrac * vp.h))
@@ -109,7 +119,8 @@ export default function Desktop() {
             defaultH={defaultH}
             theme={theme}
             zIndex={state.zIndex}
-            onClose={() => closeWindow(winCfg.id)}
+            isClosing={isClosing}
+            onClose={() => requestClose(winCfg.id)}
             onMinimize={() => minimizeWindow(winCfg.id)}
             onFocus={() => bringToFront(winCfg.id)}
           >
