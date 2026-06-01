@@ -10,12 +10,12 @@ export default function DesktopIcon({ icon, theme, onOpen }: Props) {
   return (
     <button
       className="desktop-icon"
-      onClick={icon.dim ? undefined : onOpen}
+      onClick={onOpen}
       title={icon.dim ? 'Coming soon' : `Click to open ${icon.label}`}
       style={{
         background: 'rgba(0,0,0,0.62)',
         border: '1px solid rgba(255,255,255,0.07)',
-        cursor: icon.dim ? 'default' : 'pointer',
+        cursor: icon.dim ? 'pointer' : 'pointer',
         opacity: icon.dim ? 0.45 : 1,
         color: theme.a1,
         fontFamily: 'inherit',
