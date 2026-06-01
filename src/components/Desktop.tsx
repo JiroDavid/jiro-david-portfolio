@@ -140,30 +140,33 @@ export default function Desktop() {
         )
       })}
       {r6Toast !== 'hidden' && (
-        <div
-          className={r6Toast === 'closing' ? 'win-exit' : 'win-enter'}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 9999,
-            background: theme.winBg,
-            border: `1px solid ${theme.border}`,
-            borderRadius: '10px',
-            padding: '20px 28px',
-            textAlign: 'center',
-            pointerEvents: 'none',
-            boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
-          }}
-        >
-          <div style={{ fontSize: '32px', marginBottom: '10px' }}>🤫</div>
-          <p style={{ fontSize: '10px', color: theme.a1, margin: 0, letterSpacing: '0.08em' }}>
-            coming soon
-          </p>
-          <p style={{ fontSize: '8px', color: theme.muted, margin: '4px 0 0', letterSpacing: '0.06em' }}>
-            this one&apos;s still under wraps
-          </p>
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 9999,
+          pointerEvents: 'none',
+        }}>
+          <div
+            className={r6Toast === 'closing' ? 'win-exit' : 'win-enter'}
+            style={{
+              background: theme.winBg,
+              border: `1px solid ${theme.border}`,
+              borderRadius: '10px',
+              padding: '20px 28px',
+              textAlign: 'center',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
+            }}
+          >
+            <div style={{ fontSize: '32px', marginBottom: '10px' }}>🤫</div>
+            <p style={{ fontSize: '10px', color: theme.a1, margin: 0, letterSpacing: '0.08em' }}>
+              coming soon
+            </p>
+            <p style={{ fontSize: '8px', color: theme.muted, margin: '4px 0 0', letterSpacing: '0.06em' }}>
+              this one&apos;s still under wraps
+            </p>
+          </div>
         </div>
       )}
     </div>
