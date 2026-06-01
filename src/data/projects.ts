@@ -21,7 +21,7 @@ export const projects: Project[] = [
     tech: ['Python', 'FastAPI', 'Next.js', 'Whisper', 'Ollama', 'FFmpeg'],
     github: 'https://github.com/JiroDavid/ai-twitch-clip-editor',
     youtube: 'https://www.youtube.com/watch?v=DwAc-PRauQY',
-    image: '/assets/twitch-ss.png',
+    image: '/assets/twitch-demo-ss.png',
     status: 'complete',
   },
   {
