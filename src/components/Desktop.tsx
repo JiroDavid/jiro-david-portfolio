@@ -40,6 +40,14 @@ export default function Desktop() {
 
   const [vp, setVp] = useState<{ w: number; h: number } | null>(null)
   const [closingIds, setClosingIds] = useState<Set<string>>(new Set())
+  const [r6Toast, setR6Toast] = useState<'hidden' | 'visible' | 'closing'>('hidden')
+
+  function showR6Toast() {
+    if (r6Toast !== 'hidden') return
+    setR6Toast('visible')
+    setTimeout(() => setR6Toast('closing'), 1800)
+    setTimeout(() => setR6Toast('hidden'), 1980)
+  }
 
   function requestClose(windowId: string) {
     setClosingIds((prev) => new Set(prev).add(windowId))
@@ -92,7 +100,10 @@ export default function Desktop() {
               key={icon.id}
               icon={icon}
               theme={theme}
-              onOpen={() => isOpenAndVisible ? requestClose(icon.windowId) : openWindow(icon.windowId)}
+              onOpen={() => {
+                if (icon.windowId === 'r6') { showR6Toast(); return }
+                isOpenAndVisible ? requestClose(icon.windowId) : openWindow(icon.windowId)
+              }}
             />
           )
         })}
@@ -128,6 +139,33 @@ export default function Desktop() {
           </AppWindow>
         )
       })}
+      {r6Toast !== 'hidden' && (
+        <div
+          className={r6Toast === 'closing' ? 'win-exit' : 'win-enter'}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 9999,
+            background: theme.winBg,
+            border: `1px solid ${theme.border}`,
+            borderRadius: '10px',
+            padding: '20px 28px',
+            textAlign: 'center',
+            pointerEvents: 'none',
+            boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
+          }}
+        >
+          <div style={{ fontSize: '32px', marginBottom: '10px' }}>🤫</div>
+          <p style={{ fontSize: '10px', color: theme.a1, margin: 0, letterSpacing: '0.08em' }}>
+            coming soon
+          </p>
+          <p style={{ fontSize: '8px', color: theme.muted, margin: '4px 0 0', letterSpacing: '0.06em' }}>
+            this one&apos;s still under wraps
+          </p>
+        </div>
+      )}
     </div>
   )
 }
