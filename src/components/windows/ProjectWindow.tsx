@@ -104,6 +104,25 @@ function PreviewModal({ project, theme, onClose }: { project: Project; theme: Wo
             PROJECT BREAKDOWN
           </a>
         )}
+
+        {project.showcase && (
+          <a
+            href={project.showcase}
+            target="_blank" rel="noopener noreferrer"
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '10px 22px',
+              border: `1px solid ${theme.border}`,
+              borderRadius: '6px',
+              background: `${theme.a3}20`,
+              color: theme.a1, fontSize: '11px', letterSpacing: '0.1em',
+              textDecoration: 'none', fontFamily: 'inherit',
+            }}
+          >
+            <i className="ti ti-sparkles" style={{ fontSize: '15px' }} />
+            SHOWCASE
+          </a>
+        )}
       </div>
     </div>
   )
@@ -216,6 +235,20 @@ export default function ProjectWindow({ theme, project }: Props) {
                   style={{ fontSize: '10px', color: theme.a1, textDecoration: 'none', opacity: 0.85 }}
                   onClick={(e) => e.stopPropagation()}>
                   Watch on YouTube ↗
+                </a>
+              </div>
+            </div>
+          )}
+
+          {project.showcase && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <i className="ti ti-sparkles" style={{ fontSize: '16px', color: theme.muted, flexShrink: 0 }} />
+              <div>
+                <p style={{ fontSize: '8px', letterSpacing: '0.1em', color: theme.muted, marginBottom: '2px' }}>SHOWCASE</p>
+                <a href={project.showcase} target="_blank" rel="noopener noreferrer"
+                  style={{ fontSize: '10px', color: theme.a1, textDecoration: 'none', opacity: 0.85 }}
+                  onClick={(e) => e.stopPropagation()}>
+                  {project.showcase.replace('https://github.com/', '')} ↗
                 </a>
               </div>
             </div>
