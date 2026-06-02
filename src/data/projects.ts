@@ -18,7 +18,7 @@ export const projects: Project[] = [
     id: '01',
     title: 'Twitch Clip Editor',
     description:
-      'Full-stack web app converting Twitch clips to vertical 9:16 for Shorts and TikTok. Adopted by 10 streamers following a 30-user beta. Subtitle generation, automatic layout detection, metadata automation. Showcase version built for CCI Festival — features a polished interactive demo with 3 pre-loaded clips, per-speaker caption colours, live FFmpeg render, and a 4-step reveal with phone frame.',
+      'Full-stack web app converting Twitch clips to vertical 9:16 for Shorts and TikTok. Adopted by 10 streamers following a 30-user beta. Subtitle generation, automatic layout detection, metadata automation. Showcase version built for CCI Festival featuring a polished interactive demo with 3 pre-loaded clips, per-speaker caption colours, live FFmpeg render, and a 4-step reveal with phone frame.',
     tech: ['Python', 'FastAPI', 'Next.js', 'Whisper', 'Ollama', 'FFmpeg'],
     github: 'https://github.com/JiroDavid/ai-twitch-clip-editor',
     youtube: 'https://www.youtube.com/watch?v=DwAc-PRauQY',
