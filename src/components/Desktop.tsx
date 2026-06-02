@@ -6,6 +6,7 @@ import { workspaces, WorkspaceTheme } from '@/data/workspaces'
 import { projects } from '@/data/projects'
 import AppWindow from './AppWindow'
 import DesktopIcon from './DesktopIcon'
+import VisitorCounter from './VisitorCounter'
 import {
   ProfileWindow,
   ProjectLogWindow,
@@ -139,6 +140,8 @@ export default function Desktop() {
           </AppWindow>
         )
       })}
+      <VisitorCounter theme={theme} />
+
       {r6Toast !== 'hidden' && (
         <div style={{
           position: 'absolute',
