@@ -12,6 +12,8 @@ interface Props {
 
 function PreviewModal({ project, theme, onClose }: { project: Project; theme: WorkspaceTheme; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null)
+  const imgs = project.images ?? [project.image]
+  const isBoard = imgs.length > 1
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -25,15 +27,14 @@ function PreviewModal({ project, theme, onClose }: { project: Project; theme: Wo
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 99999,
-        background: 'rgba(0,0,0,0.82)',
-        backdropFilter: 'blur(6px)',
-        WebkitBackdropFilter: 'blur(6px)',
+        background: 'rgba(0,0,0,0.88)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         gap: '18px',
       } as React.CSSProperties}
     >
-      {/* Close button — top left */}
       <button
         onClick={onClose}
         style={{
@@ -51,23 +52,49 @@ function PreviewModal({ project, theme, onClose }: { project: Project; theme: Wo
         <i className="ti ti-x" style={{ fontSize: '13px' }} /> CLOSE
       </button>
 
-      {/* Image — stop propagation so clicking it doesn't close */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={project.image}
-        alt={project.title}
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          maxWidth: '78vw', maxHeight: '68vh',
-          objectFit: 'contain',
-          borderRadius: '10px',
-          boxShadow: '0 24px 80px rgba(0,0,0,0.8)',
-          border: `1px solid ${theme.border}33`,
-          display: 'block',
-        }}
-      />
+      {isBoard ? (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '10px',
+            maxWidth: '86vw',
+          }}
+        >
+          {imgs.map((src, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={i}
+              src={src}
+              alt={`${project.title} screenshot ${i + 1}`}
+              style={{
+                width: '100%', height: 'auto',
+                objectFit: 'cover',
+                borderRadius: '8px',
+                border: `1px solid ${theme.border}33`,
+                display: 'block',
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={project.image}
+          alt={project.title}
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            maxWidth: '78vw', maxHeight: '68vh',
+            objectFit: 'contain',
+            borderRadius: '10px',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.8)',
+            border: `1px solid ${theme.border}33`,
+            display: 'block',
+          }}
+        />
+      )}
 
-      {/* Buttons */}
       <div onClick={(e) => e.stopPropagation()} style={{ display: 'flex', gap: '12px' }}>
         <a
           href={project.github}
@@ -120,7 +147,7 @@ function PreviewModal({ project, theme, onClose }: { project: Project; theme: Wo
             }}
           >
             <i className="ti ti-sparkles" style={{ fontSize: '15px' }} />
-            SHOWCASE
+            {project.showcaseLabel ?? 'SHOWCASE'}
           </a>
         )}
       </div>
@@ -131,11 +158,22 @@ function PreviewModal({ project, theme, onClose }: { project: Project; theme: Wo
 }
 
 export default function ProjectWindow({ theme, project }: Props) {
+  const [slideIdx, setSlideIdx]       = useState(0)
   const [imgError, setImgError]       = useState(false)
   const [showPreview, setShowPreview] = useState(false)
   const [mounted, setMounted]         = useState(false)
+  const imgs = project.images ?? []
+  const hasSlides = imgs.length > 1
 
   useEffect(() => { setMounted(true) }, [])
+
+  useEffect(() => {
+    if (!hasSlides) return
+    const id = setInterval(() => setSlideIdx(i => (i + 1) % imgs.length), 2800)
+    return () => clearInterval(id)
+  }, [hasSlides, imgs.length])
+
+  const displaySrc = hasSlides ? imgs[slideIdx] : project.image
 
   return (
     <>
@@ -162,13 +200,32 @@ export default function ProjectWindow({ theme, project }: Props) {
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={project.image}
+                key={displaySrc}
+                src={displaySrc}
                 alt={`${project.title} screenshot`}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{
+                  width: '100%', height: '100%', objectFit: 'cover', display: 'block',
+                  animation: hasSlides ? 'ss-fade 0.4s ease' : undefined,
+                }}
                 onError={() => setImgError(true)}
               />
-              {/* Hover overlay */}
               <div className="screenshot-hover-overlay" />
+              {hasSlides && (
+                <div style={{
+                  position: 'absolute', bottom: '7px', left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex', gap: '5px',
+                }}>
+                  {imgs.map((_, i) => (
+                    <div key={i} style={{
+                      width: i === slideIdx ? '14px' : '5px',
+                      height: '5px', borderRadius: '3px',
+                      background: i === slideIdx ? theme.a1 : 'rgba(255,255,255,0.3)',
+                      transition: 'all 0.25s ease',
+                    }} />
+                  ))}
+                </div>
+              )}
             </>
           ) : (
             <div style={{
@@ -244,7 +301,7 @@ export default function ProjectWindow({ theme, project }: Props) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <i className="ti ti-sparkles" style={{ fontSize: '16px', color: theme.muted, flexShrink: 0 }} />
               <div>
-                <p style={{ fontSize: '8px', letterSpacing: '0.1em', color: theme.muted, marginBottom: '2px' }}>SHOWCASE</p>
+                <p style={{ fontSize: '8px', letterSpacing: '0.1em', color: theme.muted, marginBottom: '2px' }}>{project.showcaseLabel ?? 'SHOWCASE'}</p>
                 <a href={project.showcase} target="_blank" rel="noopener noreferrer"
                   style={{ fontSize: '10px', color: theme.a1, textDecoration: 'none', opacity: 0.85 }}
                   onClick={(e) => e.stopPropagation()}>
@@ -264,6 +321,13 @@ export default function ProjectWindow({ theme, project }: Props) {
           <span style={{ fontSize: '8px', letterSpacing: '0.12em', color: theme.a3 }}>★ COMPLETE</span>
         </div>
       </div>
+
+      <style>{`
+        @keyframes ss-fade {
+          from { opacity: 0.4; }
+          to   { opacity: 1; }
+        }
+      `}</style>
     </>
   )
 }

@@ -8,6 +8,9 @@ export interface Project {
   github: string
   youtube?: string
   showcase?: string
+  showcaseLabel?: string
+  video?: string
+  images?: string[]
   /** Drop your screenshot or demo GIF in public/assets/ and point to it here */
   image: string
   status: ProjectStatus
@@ -37,6 +40,19 @@ export const projects: Project[] = [
     image: '/assets/video-storyboarder.png',
     status: 'complete',
   },
+  {
+    id: '03',
+    title: 'Bindings of NopeYep',
+    description:
+      'Browser game built from scratch as a birthday gift. Top-down shooter inspired by The Binding of Isaac: multiple enemy types with unique AI, a phased boss fight with telegraph mechanics, skill upgrades between rooms, and a secret garden ending with a photo board and video messages. Built in a single HTML file with vanilla JS and HTML5 Canvas. Web Audio API for procedural sound, delta-time physics, DPR-aware rendering, and particle system.',
+    tech: ['JavaScript', 'HTML5 Canvas', 'Web Audio API'],
+    github: 'https://github.com/JiroDavid/birthday-game',
+    showcase: 'https://jirodavid.github.io/birthday-game/',
+    showcaseLabel: 'PLAY',
+    image: '/assets/game_ss_1.png',
+    images: ['/assets/game_ss_1.png', '/assets/game_ss_2.png', '/assets/game_ss_3.png'],
+    status: 'complete',
+  },
 ]
 
 export const projectLog = [
@@ -54,6 +70,11 @@ export const projectLog = [
     title: 'Portfolio Site',
     tech: 'Next.js · React · Tailwind',
     status: 'active' as const,
+  },
+  {
+    title: 'Bindings of NopeYep',
+    tech: 'Vanilla JS · HTML5 Canvas · Web Audio API',
+    status: 'done' as const,
   },
   {
     title: 'R6 Strategy Tool',
