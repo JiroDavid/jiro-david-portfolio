@@ -53,6 +53,16 @@ export const projects: Project[] = [
     images: ['/assets/game_ss_1.png', '/assets/game_ss_2.png', '/assets/game_ss_3.png'],
     status: 'complete',
   },
+  {
+    id: '04',
+    title: 'ShimaTTS',
+    description:
+      'Local Twitch TTS alert app with AI voice cloning - no cloud, no subscriptions. Channel point redeems are spoken in a voice cloned from a 10-30 second sample (F5-TTS on GPU) while an animated alert banner with the viewer\'s name and message appears in OBS. One-click Twitch login, shiba-themed native dashboard, voice and GIF libraries with in-app previews, test alerts, TTS queue, and system tray.',
+    tech: ['Python', 'FastAPI', 'F5-TTS', 'PyTorch', 'pywebview', 'OBS'],
+    github: 'https://github.com/JiroDavid/ShimaTTS',
+    image: '/assets/shimatts-ss.png',
+    status: 'complete',
+  },
 ]
 
 export const projectLog = [
@@ -74,6 +84,11 @@ export const projectLog = [
   {
     title: 'Bindings of NopeYep',
     tech: 'Vanilla JS · HTML5 Canvas · Web Audio API',
+    status: 'done' as const,
+  },
+  {
+    title: 'ShimaTTS',
+    tech: 'FastAPI · F5-TTS · PyTorch · pywebview',
     status: 'done' as const,
   },
   {
