@@ -60,6 +60,7 @@ export const projects: Project[] = [
       'Local Twitch TTS alert app with AI voice cloning - no cloud, no subscriptions. Channel point redeems are spoken in a voice cloned from a 10-30 second sample (F5-TTS on GPU) while an animated alert banner with the viewer\'s name and message appears in OBS. One-click Twitch login, shiba-themed native dashboard, voice and GIF libraries with in-app previews, test alerts, TTS queue, and system tray.',
     tech: ['Python', 'FastAPI', 'F5-TTS', 'PyTorch', 'pywebview', 'OBS'],
     github: 'https://github.com/JiroDavid/ShimaTTS',
+    youtube: 'https://www.youtube.com/watch?v=qQTdEA_w2CY',
     image: '/assets/shimatts-ss.png',
     status: 'complete',
   },
