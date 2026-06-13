@@ -23,9 +23,9 @@ function renderContent(windowId: string, theme: WorkspaceTheme) {
     case 'profile':  return <ProfileWindow theme={theme} />
     case 'log':      return <ProjectLogWindow theme={theme} />
     case 'clip':     return <ProjectWindow theme={theme} project={projects[0]} />
-    case 'story':    return <ProjectWindow theme={theme} project={projects[1]} />
-    case 'birthday': return <ProjectWindow theme={theme} project={projects[2]} />
-    case 'shima':    return <ProjectWindow theme={theme} project={projects[3]} />
+    case 'shima':    return <ProjectWindow theme={theme} project={projects[1]} />
+    case 'story':    return <ProjectWindow theme={theme} project={projects[2]} />
+    case 'birthday': return <ProjectWindow theme={theme} project={projects[3]} />
     case 'skills':   return <SkillsWindow theme={theme} />
     case 'contact':  return <ContactWindow theme={theme} />
     case 'cv':       return <CvWindow theme={theme} />

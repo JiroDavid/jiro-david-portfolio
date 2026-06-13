@@ -31,6 +31,17 @@ export const projects: Project[] = [
   },
   {
     id: '02',
+    title: 'ShimaTTS',
+    description:
+      'Local Twitch TTS alert app with AI voice cloning - no cloud, no subscriptions. Channel point redeems are spoken in a voice cloned from a 10-30 second sample (F5-TTS on GPU) while an animated alert banner with the viewer\'s name and message appears in OBS. One-click Twitch login, shiba-themed native dashboard, voice and GIF libraries with in-app previews, test alerts, TTS queue, and system tray.',
+    tech: ['Python', 'FastAPI', 'F5-TTS', 'PyTorch', 'pywebview', 'OBS'],
+    github: 'https://github.com/JiroDavid/ShimaTTS',
+    youtube: 'https://www.youtube.com/watch?v=qQTdEA_w2CY',
+    image: '/assets/shimatts-ss.png',
+    status: 'complete',
+  },
+  {
+    id: '03',
     title: 'Video Storyboarder',
     description:
       'Pipeline for YouTube creators. Transcribes with Whisper, analyses frames with LLaVA, generates storyboard panels via ComfyUI with a custom SDXL LoRA.',
@@ -41,7 +52,7 @@ export const projects: Project[] = [
     status: 'complete',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Bindings of NopeYep',
     description:
       'Browser game built from scratch as a birthday gift. Top-down shooter inspired by The Binding of Isaac: multiple enemy types with unique AI, a phased boss fight with telegraph mechanics, skill upgrades between rooms, and a secret garden ending with a photo board and video messages. Built in a single HTML file with vanilla JS and HTML5 Canvas. Web Audio API for procedural sound, delta-time physics, DPR-aware rendering, and particle system.',
@@ -51,17 +62,6 @@ export const projects: Project[] = [
     showcaseLabel: 'PLAY',
     image: '/assets/game_ss_1.png',
     images: ['/assets/game_ss_1.png', '/assets/game_ss_2.png', '/assets/game_ss_3.png'],
-    status: 'complete',
-  },
-  {
-    id: '04',
-    title: 'ShimaTTS',
-    description:
-      'Local Twitch TTS alert app with AI voice cloning - no cloud, no subscriptions. Channel point redeems are spoken in a voice cloned from a 10-30 second sample (F5-TTS on GPU) while an animated alert banner with the viewer\'s name and message appears in OBS. One-click Twitch login, shiba-themed native dashboard, voice and GIF libraries with in-app previews, test alerts, TTS queue, and system tray.',
-    tech: ['Python', 'FastAPI', 'F5-TTS', 'PyTorch', 'pywebview', 'OBS'],
-    github: 'https://github.com/JiroDavid/ShimaTTS',
-    youtube: 'https://www.youtube.com/watch?v=qQTdEA_w2CY',
-    image: '/assets/shimatts-ss.png',
     status: 'complete',
   },
 ]
