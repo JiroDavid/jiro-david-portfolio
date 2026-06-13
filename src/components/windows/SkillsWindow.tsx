@@ -43,10 +43,10 @@ export default function SkillsWindow({ theme }: { theme: WorkspaceTheme }) {
         paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.06)',
         fontSize: '8px', color: theme.muted, lineHeight: 2.0,
       }}>
-        <div><span style={{ color: theme.a3 }}>Languages:</span> Python &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; SQL</div>
-        <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI &middot; Next.js &middot; React &middot; Tailwind &middot; Gradio</div>
         <div><span style={{ color: theme.a3 }}>AI / ML:</span> Whisper &middot; Ollama &middot; LLaVA &middot; ComfyUI &middot; SDXL &middot; LoRA fine-tuning</div>
-        <div><span style={{ color: theme.a3 }}>Tools:</span> Git &middot; GitHub &middot; FFmpeg &middot; yt-dlp &middot; REST APIs &middot; OAuth 2.0 &middot; Docker</div>
+        <div><span style={{ color: theme.a3 }}>Languages:</span> Python &middot; TypeScript &middot; JavaScript &middot; SQL</div>
+        <div><span style={{ color: theme.a3 }}>Frameworks:</span> FastAPI &middot; Next.js &middot; React &middot; Tailwind &middot; Gradio</div>
+        <div><span style={{ color: theme.a3 }}>Tools:</span> Git &middot; Docker &middot; FFmpeg &middot; REST APIs &middot; OAuth 2.0</div>
       </div>
     </div>
   )

@@ -1,10 +1,10 @@
 import { WorkspaceTheme } from '@/data/workspaces'
 
 const stats = [
-  { label: 'FRONTEND', width: '85%', accent: 'a3' },
-  { label: 'BACKEND',  width: '80%', accent: 'a3' },
-  { label: 'AI / ML',  width: '75%', accent: 'a2' },
-  { label: 'DESIGN',   width: '60%', accent: 'a3' },
+  { label: 'AI / LLM',   width: '88%', accent: 'a2' },
+  { label: 'BACKEND',    width: '82%', accent: 'a3' },
+  { label: 'FRONTEND',   width: '75%', accent: 'a3' },
+  { label: 'DESIGN',     width: '55%', accent: 'a3' },
 ] as const
 
 export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
@@ -30,7 +30,7 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
             JIRO<br />DAVID
           </h1>
           <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em' }}>
-            ◆ FULL-STACK DEVELOPER
+            ◆ AI APPLICATION ENGINEER
           </p>
         </div>
       </div>
@@ -57,9 +57,8 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
       </div>
 
       <div style={{ marginTop: '18px', paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted, lineHeight: 1.6 }}>
-        CS graduate from UAL. I build tools for the creators and gamers! Specifically, full-stack apps with AI and ML pipelines baked in. 
-        Fullstack development is my bread and butter, but I also have a passion for design and UX. I’m currently looking for new opportunities, 
-        so feel free to reach out!
+        CS graduate from UAL. I build AI-powered tools for creators and gamers! LLM pipelines, multi-model workflows, full-stack apps with ML baked in from the start.
+        Backend is my strong suit but I do the whole stack. Currently looking for AI engineering roles, feel free to reach out!
       </div>
     </div>
   )

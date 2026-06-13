@@ -18,10 +18,10 @@ const contacts = [
 ]
 
 const statBars = [
-  { label: 'FRONTEND', width: '85%' },
-  { label: 'BACKEND',  width: '80%' },
-  { label: 'AI / ML',  width: '75%' },
-  { label: 'DESIGN',   width: '60%' },
+  { label: 'AI / LLM', width: '88%' },
+  { label: 'BACKEND',  width: '82%' },
+  { label: 'FRONTEND', width: '75%' },
+  { label: 'DESIGN',   width: '55%' },
 ]
 
 const statusColour: Record<string, string> = {
@@ -58,7 +58,7 @@ function ProfilePage() {
           <h1 style={{ fontSize: '26px', fontWeight: 700, lineHeight: 1.05, marginBottom: '6px', color: theme.a1 }}>
             JIRO<br />DAVID
           </h1>
-          <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em', marginBottom: '6px' }}>◆ FULL-STACK DEVELOPER</p>
+          <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em', marginBottom: '6px' }}>◆ AI APPLICATION ENGINEER</p>
           <p style={{ fontSize: '9px', color: theme.muted }}>CS @ UAL · London</p>
         </div>
       </div>
@@ -83,11 +83,11 @@ function ProfilePage() {
       </div>
 
       <p style={{ fontSize: '9px', color: theme.muted, lineHeight: 1.7, marginTop: '16px' }}>
-        CS graduate from UAL. I build tools for the creator and gaming spaces, full-stack apps with ML pipelines baked in.
+        CS graduate from UAL. I build AI-powered tools for creators and gamers! LLM pipelines, multi-model workflows, full-stack apps with ML baked in from the start.
       </p>
 
       <div style={{ marginTop: '14px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted }}>
-        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to dev roles</span>
+        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to AI engineering roles</span>
         {' '}· available Jul 2026
         <span className="blink-cursor" style={{ color: theme.a2 }} aria-hidden="true" />
       </div>
