@@ -30,7 +30,7 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
             JIRO<br />DAVID
           </h1>
           <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em' }}>
-            ◆ AI APPLICATION ENGINEER
+            ◆ SOFTWARE ENGINEER
           </p>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function ProfileWindow({ theme }: { theme: WorkspaceTheme }) {
 
       <div style={{ marginTop: '18px', paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted, lineHeight: 1.6 }}>
         CS graduate from UAL. I build AI-powered tools for creators and gamers! LLM pipelines, multi-model workflows, full-stack apps with ML baked in from the start.
-        Backend is my strong suit but I do the whole stack. Currently looking for AI engineering roles, feel free to reach out!
+        Backend is my strong suit but I do the whole stack. Currently looking for software engineering roles, feel free to reach out!
       </div>
     </div>
   )

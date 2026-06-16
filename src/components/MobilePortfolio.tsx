@@ -58,7 +58,7 @@ function ProfilePage() {
           <h1 style={{ fontSize: '26px', fontWeight: 700, lineHeight: 1.05, marginBottom: '6px', color: theme.a1 }}>
             JIRO<br />DAVID
           </h1>
-          <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em', marginBottom: '6px' }}>◆ AI APPLICATION ENGINEER</p>
+          <p style={{ fontSize: '9px', color: theme.a2, letterSpacing: '0.12em', marginBottom: '6px' }}>◆ SOFTWARE ENGINEER</p>
           <p style={{ fontSize: '9px', color: theme.muted }}>CS @ UAL · London</p>
         </div>
       </div>
@@ -87,7 +87,7 @@ function ProfilePage() {
       </p>
 
       <div style={{ marginTop: '14px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '9px', color: theme.muted }}>
-        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to AI engineering roles</span>
+        <span style={{ color: theme.a1, fontWeight: 700 }}>Open to software engineering roles</span>
         {' '}· available Jul 2026
         <span className="blink-cursor" style={{ color: theme.a2 }} aria-hidden="true" />
       </div>
