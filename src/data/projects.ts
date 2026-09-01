@@ -64,6 +64,16 @@ export const projects: Project[] = [
     images: ['/assets/game_ss_1.png', '/assets/game_ss_2.png', '/assets/game_ss_3.png'],
     status: 'complete',
   },
+  {
+    id: '05',
+    title: 'ShimaMMR',
+    description:
+      'Production Discord bot turning a 100+ member Valorant community\'s nightly customs and scrims into a proper competitive ecosystem. Elo-based MMR with a performance-adjusted K-factor, combat-score modifier, and loss-streak dampening drives rank tiers and paginated leaderboards. Dual-source match ingestion (manual reporting plus auto-detection via the HenrikDev API with roster-overlap heuristics) feeds a confirm/dispute workflow with admin correction and full recompute cascades. Shipped to production in under a week with 140+ tests.',
+    tech: ['Python', 'discord.py', 'SQLAlchemy', 'Alembic', 'HenrikDev API', 'Docker', 'pytest'],
+    github: 'https://github.com/JiroDavid/ShimaMMR',
+    image: '/assets/shimammr-banner.png',
+    status: 'complete',
+  },
 ]
 
 export const projectLog = [
@@ -90,6 +100,11 @@ export const projectLog = [
   {
     title: 'ShimaTTS',
     tech: 'FastAPI · F5-TTS · PyTorch · pywebview',
+    status: 'done' as const,
+  },
+  {
+    title: 'ShimaMMR',
+    tech: 'discord.py · SQLAlchemy · HenrikDev API · Docker',
     status: 'done' as const,
   },
   {
