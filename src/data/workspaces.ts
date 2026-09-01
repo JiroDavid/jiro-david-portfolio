@@ -86,12 +86,12 @@ export const workspaces: Record<WorkspaceId, WorkspaceTheme> = {
       { id: 'terminal', label: 'terminal.sh',     icon: 'ti-terminal-2',      windowId: 'terminal' },
     ],
     windows: [
-      { id: 'clip',     title: 'clip_editor.py',  xFrac: 0.100, yFrac: 0.065, wFrac: 0.138, hFrac: 0.67 },
-      { id: 'story',    title: 'storyboarder.py', xFrac: 0.248, yFrac: 0.065, wFrac: 0.138, hFrac: 0.67 },
-      { id: 'birthday', title: 'birthday.js',     xFrac: 0.396, yFrac: 0.065, wFrac: 0.138, hFrac: 0.67 },
-      { id: 'shima',    title: 'shima_tts.py',    xFrac: 0.544, yFrac: 0.065, wFrac: 0.138, hFrac: 0.67 },
-      { id: 'shimammr', title: 'shima_mmr.py',    xFrac: 0.692, yFrac: 0.065, wFrac: 0.138, hFrac: 0.67 },
-      { id: 'terminal', title: 'terminal.sh',     xFrac: 0.840, yFrac: 0.065, wFrac: 0.145, hFrac: 0.67 },
+      { id: 'clip',     title: 'clip_editor.py',  xFrac: 0.100, yFrac: 0.065, wFrac: 0.252, hFrac: 0.325 },
+      { id: 'birthday', title: 'birthday.js',     xFrac: 0.364, yFrac: 0.065, wFrac: 0.252, hFrac: 0.325 },
+      { id: 'story',    title: 'storyboarder.py', xFrac: 0.100, yFrac: 0.410, wFrac: 0.252, hFrac: 0.325 },
+      { id: 'shima',    title: 'shima_tts.py',    xFrac: 0.364, yFrac: 0.410, wFrac: 0.252, hFrac: 0.325 },
+      { id: 'shimammr', title: 'shima_mmr.py',    xFrac: 0.628, yFrac: 0.065, wFrac: 0.200, hFrac: 0.670 },
+      { id: 'terminal', title: 'terminal.sh',     xFrac: 0.840, yFrac: 0.065, wFrac: 0.145, hFrac: 0.670 },
     ],
   },
 
